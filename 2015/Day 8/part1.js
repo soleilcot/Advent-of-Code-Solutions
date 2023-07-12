@@ -7,7 +7,7 @@ readInput((err, schema) => {
     return;
   }
 
-  let result = readFile();
+  let result = readInput();
   console.log(result);
 });
 
