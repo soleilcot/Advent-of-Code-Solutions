@@ -42,7 +42,6 @@ function updateCell(grid, x, y, command) {
   }
 }
 
-
 function updateGrid(grid, first_coord, second_coord, command) {
   const [firstX, firstY] = first_coord;
   const [secondX, secondY] = second_coord;
@@ -53,7 +52,7 @@ function updateGrid(grid, first_coord, second_coord, command) {
   const maxY = Math.max(firstY, secondY);
 
   for (let x = minX; x <= maxX; x++) {
-    for (let y = minY; y <= maxY; y++){
+    for (let y = minY; y <= maxY; y++) {
       updateCell(grid, x, y, command);
     }
   }
