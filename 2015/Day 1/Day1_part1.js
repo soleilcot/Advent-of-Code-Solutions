@@ -5,8 +5,8 @@ main();
 function main() {
   let sInput = readInput();
 
-  var climbCount = (sInput.match(/\(/g) || []).length;
-  var descendCount = (sInput.match(/\)/g) || []).length;
+  const climbCount = (sInput.match(/\(/g) || []).length;
+  const descendCount = (sInput.match(/\)/g) || []).length;
 
   console.log('Santa ends up on floor', String(climbCount - descendCount));
 }

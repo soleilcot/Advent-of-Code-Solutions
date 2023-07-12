@@ -4,9 +4,9 @@ main();
 
 function main() {
   //Variable declaration
-  var sInput = readInput();
-  var nCurrentFloor = 0;
-  var pos = 0;
+  const sInput = readInput();
+  let nCurrentFloor = 0;
+  let pos = 0;
 
   //Iterate through the string and process inputs
   for (const value of sInput) {

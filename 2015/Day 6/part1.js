@@ -1,11 +1,12 @@
 const fs = require('fs');
-var on_count = 0;
+
 
 main();
 
 function main() {
   let grid = Array.from(Array(1000), () => new Array(1000));
   let sInput = readInput();
+  let on_count = 0;
   let first_coord;
   let second_coord;
   let arr;
