@@ -1,7 +1,7 @@
 const readline = require('readline');
 const fs = require('fs');
 
-readInput((err, schema) => {
+readInput((err) => {
   if (err) {
     console.error('An error occurred:', err);
     return;
