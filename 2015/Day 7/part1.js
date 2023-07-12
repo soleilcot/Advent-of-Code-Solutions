@@ -68,4 +68,3 @@ function readInput(callback) {
     callback(err);
   });
 }
-
