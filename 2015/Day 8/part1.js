@@ -1,15 +1,7 @@
 const readline = require('readline');
 const fs = require('fs');
 
-readInput((err) => {
-  if (err) {
-    console.error('An error occurred:', err);
-    return;
-  }
-
-  let result = readInput();
-  console.log(result);
-});
+readInput();
 
 function stripQuotes(str) {
   return str.replace(/^"|"$/g, '');
