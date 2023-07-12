@@ -24,7 +24,6 @@ function findValue(wire, schema) {
   //If the wire value is dependent on other wire values that we don't know, then we must figure it out
   //using recursion
   let arr = given_by.split(' ');
-  //console.log(arr);
 
   if (arr[0] == 'NOT') {
     schema[wire] = ~findValue(arr[1], schema);
