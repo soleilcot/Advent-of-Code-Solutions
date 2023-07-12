@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 main();
 
@@ -25,16 +25,16 @@ function main(){
         }
     }
 
-    console.log("Santa enters the basement at position ",String(pos))
+    console.log('Santa enters the basement at position ',String(pos));
 }
 
 //Helper to read the necessary input locally from file
 function readInput(){
     try {
-        const data = fs.readFileSync('input.txt', 'utf8')
-        return data
+        const data = fs.readFileSync('input.txt', 'utf8');
+        return data;
     }   
     catch (err) {
-        console.error(err)
+        console.error(err);
     }
 }

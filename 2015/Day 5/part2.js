@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-main()
+main();
 
 function main(){
     let sInput = readInput();
@@ -10,7 +10,7 @@ function main(){
       if (!str) continue;
       //Declare REGEX
       let first_req = new RegExp('([a-z][a-z]).*\\1','i');
-      let second_req = new RegExp('([a-z]).{1}\\1','i')
+      let second_req = new RegExp('([a-z]).{1}\\1','i');
 
       //Process requirements for given string
       let string_requirements = [first_req.test(str), second_req.test(str)];
@@ -26,7 +26,7 @@ function main(){
 function readInput(){
     try {
         const data = fs.readFileSync('input.txt', 'utf8');
-        return data.toString().split("\n");
+        return data.toString().split('\n');
     }
     catch (err) {
         console.error(err);

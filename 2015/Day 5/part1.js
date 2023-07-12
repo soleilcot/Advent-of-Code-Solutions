@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-main()
+main();
 
 function main(){
     let sInput = readInput();
@@ -8,7 +8,7 @@ function main(){
 
     //Declare REGEX
     let first_req = new RegExp('[aeiou]','ig');
-    let second_req = new RegExp('([a-z])\\1+','i')
+    let second_req = new RegExp('([a-z])\\1+','i');
     let third_req = new RegExp('(ab)|(cd)|(pq)|(xy)','i');
 
     //Declare loop variables
@@ -35,7 +35,7 @@ function main(){
 function readInput(){
     try {
         const data = fs.readFileSync('input.txt', 'utf8');
-        return data.toString().split("\n");
+        return data.toString().split('\n');
     }
     catch (err) {
         console.error(err);

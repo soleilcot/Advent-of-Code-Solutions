@@ -13,7 +13,7 @@ function main(){
        }
 
        if (last){
-        console.log(totalPaper," square feet of wrapping paper must be ordered.");
+        console.log(totalPaper,' square feet of wrapping paper must be ordered.');
        }
     });
 }

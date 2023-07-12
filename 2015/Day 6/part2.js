@@ -34,11 +34,11 @@ function main(){
 function updateGrid(grid,first_coord,second_coord,command){
   for (let x = Math.min(first_coord[0],second_coord[0]); x <= Math.max(first_coord[0],second_coord[0]); x++){
     for (let y = Math.min(first_coord[1],second_coord[1]); y <= Math.max(first_coord[1],second_coord[1]); y++){
-      if (command.includes("off")){
+      if (command.includes('off')){
         if (grid[x][y] == 0) continue;
         if (grid[x][y] == 1) grid[x][y] = 0;
         else grid[x][y]--;
-      } else if (command.includes("on")){
+      } else if (command.includes('on')){
         grid[x][y]++;
       } else{
         grid[x][y] += 2;
@@ -50,7 +50,7 @@ function updateGrid(grid,first_coord,second_coord,command){
 function readInput(){
     try {
         const data = fs.readFileSync('input.txt', 'utf8');
-        return data.toString().split("\n");
+        return data.toString().split('\n');
     }
     catch (err) {
         console.error(err);
