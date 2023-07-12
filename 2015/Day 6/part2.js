@@ -32,26 +32,29 @@ function main() {
   console.log(`Total brightness is ${brightness_count}`);
 }
 
+function updateCell(grid, x, y, command) {
+  if (command.includes('off')) {
+    grid[x][y] = Math.max(0, grid[x][y] - 1);
+  } else if (command.includes('on')) {
+    grid[x][y]++;
+  } else {
+    grid[x][y] += 2;
+  }
+}
+
+
 function updateGrid(grid, first_coord, second_coord, command) {
-  for (
-    let x = Math.min(first_coord[0], second_coord[0]);
-    x <= Math.max(first_coord[0], second_coord[0]);
-    x++
-  ) {
-    for (
-      let y = Math.min(first_coord[1], second_coord[1]);
-      y <= Math.max(first_coord[1], second_coord[1]);
-      y++
-    ) {
-      if (command.includes('off')) {
-        if (grid[x][y] == 0) continue;
-        if (grid[x][y] == 1) grid[x][y] = 0;
-        else grid[x][y]--;
-      } else if (command.includes('on')) {
-        grid[x][y]++;
-      } else {
-        grid[x][y] += 2;
-      }
+  const [firstX, firstY] = first_coord;
+  const [secondX, secondY] = second_coord;
+
+  const minX = Math.min(firstX, secondX);
+  const maxX = Math.max(firstX, secondX);
+  const minY = Math.min(firstY, secondY);
+  const maxY = Math.max(firstY, secondY);
+
+  for (let x = minX; x <= maxX; x++) {
+    for (let y = minY; y <= maxY; y++){
+      updateCell(grid, x, y, command);
     }
   }
 }
