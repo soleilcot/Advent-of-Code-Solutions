@@ -1,16 +1,18 @@
-var readline = require('readline');
-var fs = require('fs');
-var schema = {};
+const readline = require('readline');
+const fs = require('fs');
 
-main();
+readInput((err, schema) => {
+  if (err) {
+    console.error('An error occurred:', err);
+    return;
+  }
 
-async function main() {
-  await readInput();
   schema['b'] = 3176;
-  console.log(findValue('a'));
-}
+  let result = findValue('a', schema);
+  console.log(result);
+});
 
-function findValue(wire) {
+function findValue(wire, schema) {
   if (!isNaN(wire)) return wire; //Wire identifier must be alphabetic, if not this  is a value and should be returned immediately.
   let given_by = schema[wire]; //Uses the schema to tell us how to determine the value for this wire
 
@@ -26,36 +28,45 @@ function findValue(wire) {
   //console.log(arr);
 
   if (arr[0] == 'NOT') {
-    schema[wire] = ~findValue(arr[1]);
+    schema[wire] = ~findValue(arr[1], schema);
   } else if (arr[1] == 'OR') {
-    schema[wire] = findValue(arr[0]) | findValue(arr[2]);
+    schema[wire] = findValue(arr[0], schema) | findValue(arr[2], schema);
   } else if (arr[1] == 'AND') {
-    schema[wire] = findValue(arr[0]) & findValue(arr[2]);
+    schema[wire] = findValue(arr[0], schema) & findValue(arr[2], schema);
   } else if (arr[1] == 'RSHIFT') {
-    schema[wire] = findValue(arr[0]) >> arr[2];
+    schema[wire] = findValue(arr[0], schema) >> arr[2];
   } else if (arr[1] == 'LSHIFT') {
-    schema[wire] = findValue(arr[0]) << arr[2];
+    schema[wire] = findValue(arr[0], schema) << arr[2];
   } else {
-    schema[wire] = findValue(arr[0]);
+    schema[wire] = findValue(arr[0], schema);
   }
   return schema[wire];
 }
 
-async function readInput() {
+function readInput(callback) {
   const fileStream = fs.createReadStream('input.txt');
-
   const rl = readline.createInterface({
     input: fileStream,
     crlfDelay: Infinity,
   });
 
-  //We need an object that given a wire identifier will tell us how to get its value
-  for await (const line of rl) {
+  let schema = {};
+
+  rl.on('line', (line) => {
     let line_arr = line.split(' -> ');
     if (!isNaN(line_arr[1])) {
       schema[line_arr[0]] = line_arr[1];
     } else {
       schema[line_arr[1]] = line_arr[0];
     }
-  }
+  });
+
+  rl.on('close', () => {
+    callback(null, schema);
+  });
+
+  rl.on('error', (err) => {
+    callback(err);
+  });
 }
+

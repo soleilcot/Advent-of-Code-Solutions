@@ -1,5 +1,4 @@
 const fs = require('fs');
-var brightness_count = 0;
 
 main();
 
@@ -8,6 +7,7 @@ function main() {
     Array.from({ length: 1000 }, () => 0),
   );
   let sInput = readInput();
+  let brightness_count = 0;
   let first_coord;
   let second_coord;
   let arr;
