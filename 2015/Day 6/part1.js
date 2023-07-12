@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-
 main();
 
 function main() {

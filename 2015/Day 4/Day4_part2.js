@@ -17,7 +17,7 @@ function main() {
 
     //Compute the hash for this permutation
     hash.update(str + num);
-    
+
     //Compare the first n digits of the hash to see if it matches our precision limit
   } while (
     hash.digest('Hex').substring(0, numberOfZeros) != '0'.repeat(numberOfZeros)
