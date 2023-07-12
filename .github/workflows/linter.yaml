@@ -32,3 +32,4 @@ jobs:
         with:
           eslint: true
           prettier: true
+          prettier_args: "--single-quote"
