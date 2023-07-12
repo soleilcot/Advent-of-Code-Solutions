@@ -10,7 +10,6 @@ If your secret key is pqrstuv, the lowest number it combines with to make an MD5
 */
 
 const crypto = require('crypto');
-const { mainModule } = require('process');
 
 main();
 

@@ -3,7 +3,6 @@ Now find one that starts with six zeroes.
 */
 
 const crypto = require('crypto');
-const { mainModule } = require('process');
 
 main();
 
