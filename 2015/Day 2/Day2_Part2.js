@@ -16,7 +16,7 @@ function main(){
        }
 
        if (last){
-        console.log(totalRibbon," feet of ribbon must be ordered.");
+        console.log(totalRibbon,' feet of ribbon must be ordered.');
        }
     });
 }

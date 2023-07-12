@@ -1,6 +1,6 @@
 var readline = require('readline');
 var fs = require('fs');
-var schema = {}
+var schema = {};
 
 main();
 
@@ -17,7 +17,7 @@ function findValue(wire){
   //console.log(wire,given_by);
   //If the wire value is given by a number, then no processing is needed since we already know.
   if (!isNaN(given_by)){
-    schema[wire] = parseInt(given_by)
+    schema[wire] = parseInt(given_by);
     return schema[wire];
   }
   //If the wire value is dependent on other wire values that we don't know, then we must figure it out
@@ -38,7 +38,7 @@ function findValue(wire){
   } else{
     schema[wire] = findValue(arr[0]);
   }
-  return schema[wire]
+  return schema[wire];
 }
 
 async function readInput() {

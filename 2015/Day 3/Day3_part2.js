@@ -13,7 +13,7 @@ For example:
 ^v^v^v^v^v now delivers presents to 11 houses, with Santa going one direction and Robo-Santa going the other.
 */
 
-const fs = require('fs')
+const fs = require('fs');
 //The map will track the coordinates at which we have made at least one delivery and will enumerate the number of deliveries there.
 const map = new Map();
 
@@ -25,13 +25,13 @@ function main(){
     const roboSanta = {x: 0, y: 0};
 
     //Get the inputs from file
-    let sInput = readInput()
+    let sInput = readInput();
 
     //Register delivery at the starting point first as only subsequent deliveries are caught below
     map.set('0,0' , 1);
 
     //Initialize the counter for the coming loop
-    let count = 0
+    let count = 0;
     
     for (const value of sInput){
         //Update the coordinates based on instructions read in and whether the instructions as meant for Santa or RoboSanta
@@ -47,16 +47,16 @@ function main(){
         count++;
     }
 
-    console.log("We delivered to",map.size,"houses.");
+    console.log('We delivered to',map.size,'houses.');
 }
 
 function readInput(){
     try {
-        const data = fs.readFileSync('input.txt', 'utf8')
-        return data
+        const data = fs.readFileSync('input.txt', 'utf8');
+        return data;
     }   
     catch (err) {
-        console.error(err)
+        console.error(err);
     }
 }
 
@@ -80,9 +80,9 @@ function updateCoordinates(obj,value){
 function updateMap(obj){
     //Update the map to mark a new delivery. Set to 1 if we've never been here, increment otherwise.
     if (map.has(obj.x + ',' + obj.y)){
-        map.set(obj.x + ',' + obj.y , map.get(obj.x + ',' + obj.y) + 1)
+        map.set(obj.x + ',' + obj.y , map.get(obj.x + ',' + obj.y) + 1);
     }
     else{
-        map.set(obj.x + ',' + obj.y , 1)
+        map.set(obj.x + ',' + obj.y , 1);
     }
 }
