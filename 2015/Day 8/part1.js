@@ -4,7 +4,7 @@ const fs = require('fs');
 readInput();
 
 function stripQuotes(str) {
-  return str.replace(/^"|"$/g, '');
+  return str.replace(/(?:^")|(?:"$)/g, '');
 }
 
 function getNumInCode(str) {
