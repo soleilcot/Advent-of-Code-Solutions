@@ -15,12 +15,6 @@ function stripQuotes(str) {
   return str.replace(/^"|"$/g, '');
 }
 
-function replaceHexWithAscii(str) {
-  return str.replace(/\\x([0-9A-Fa-f]{2})/g, function (match, p1) {
-    return String.fromCharCode(parseInt(p1, 16));
-  });
-}
-
 function getNumInCode(str) {
   return str.trim().length;
 }
